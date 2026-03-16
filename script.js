@@ -14,7 +14,7 @@ inputButton.forEach(button => {
             displayOutput.value = displayOutput.value.slice(0, -1);
         } else if(action === 'equal') {
             try {
-                displayOutput.value = eval(displayOutput.value).toFixed(11);
+                displayOutput.value = eval(displayOutput.value);
             } catch {
                 displayOutput.value = 'Error';
             }
