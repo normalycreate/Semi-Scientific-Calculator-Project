@@ -147,11 +147,11 @@ DISCLAIMER : Not suitable for the screen under 720p!*/
         border-radius: none;
     }
     .display {
-        width: 400px;
+        width: 350px;
         height: 130px;
     }
     .numButton {
-        padding: 20px;
+        padding: 15px;
         font-size: 2rem;
     }
 }
