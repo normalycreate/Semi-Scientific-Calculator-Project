@@ -1,29 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
-/*To anticipate Error That Impact to user that use light mode in browser and to give the costumization in the future :)*/
+/*To adding the different theme in the future*/
 :root {
-    --hookers-green: #41431B;
-    --beige: #F8F3E1;
-    --darkern-beige: #E3DBBB;
-    --emerald-green: #AEB784;
-    --blushed-red: #BF4646;
-    --plain-white : #F9F8F6;
-    --beige-and-brown : #6E5034;
-}
-
-
-@media (prefers-color-scheme: dark){
-    :root {
-        /*For Dark Mode*/
-        --hookers-green: #41431B;
-        --beige: #F8F3E1;
-        --darkern-beige: #E3DBBB;
-        --emerald-green: #AEB784;
-        --blushed-red: #BF4646;
-        --plain-white : #F9F8F6;
-        --beige-and-brown : #6E5034;
-    }
+    --text-light : #F9F8F6;
+    --lightest: #F8F3E1;
+    --greyer: #E3DBBB;
+    --grey: #AEB784;
+    --emphasize : #BF4646;
+    --dark : #6E5034;
+    --darkest: #41431B;
 }
 
 * {
@@ -34,19 +20,59 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--hookers-green);
+    background-color: var(--darkest);
     height: 100vh;
 }
+.essentialMenu {
+    gap: 0.5rem;
+    display: flex;
+    margin: 0.5rem;
+    position: absolute;
+}
+.theme, .advanced {
+    font-size: 2rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    cursor: pointer;
+    border-radius: 0.4rem;
+    border: var(--dark) 2px solid;
+    box-shadow: 0px 5px 0px 0px rgba(0,0,0,0.5);
+}
+.theme {
+    background-color: var(--lightest);
+    color: var(--dark);
+}
+.theme:hover {
+    transform: translateY(-2px);
+}
+.theme:active {
+    transform: scale(0.95);
+    background-color: var(--greyer);
+}
+.advanced {
+    background-color: var(--emphasize);
+    color: var(--text-light);
+}
+.advanced:hover {
+    transform: translateY(-2px);
+}
+.advanced:active {
+    transform: scale(0.95);
+    background-color: #762b2b;
+}
+.container {
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
 .calculator {
-    background-color: var(--beige);
+    background-color: var(--lightest);
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0px 10px 0px 1px rgba(0,0,0,0.5);
+    box-shadow: 0px 10px 0px 0px rgba(0,0,0,0.5);
+    border: var(--dark) 3px solid;
 }
 .display {
     font-family: 'Roboto Mono', monospace;
@@ -57,11 +83,11 @@ body {
     text-align: right;
     font-size: 3.5rem;
     border: none;
-    background-color: var(--emerald-green);
+    background-color: var(--grey);
     border-radius: 5px;
-    color: var(--plain-white);   
+    color: var(--text-light);   
     margin-bottom: 10px;
-    border: var(--hookers-green) 2px solid;
+    border: var(--darkest) 2px solid;
     box-shadow: 2px 2px 2px 0px #00000071, inset 2px 2px 2px 0px #00000064, inset -2px -2px 0px 1px rgba(0, 0, 0, 0.329);
 }
 .button {
@@ -75,24 +101,24 @@ body {
     font-size: 2rem;
     font-weight: 600;
     border-radius: 10px;
-    background-color: var(--darkern-beige);
-    color: var(--beige-and-brown);
+    background-color: var(--greyer);
+    color: var(--dark);
     box-shadow: 0px 5px 0px 1px rgba(0,0,0,0.3);
-    border: var(--beige-and-brown) 2px solid;
+    border: var(--dark) 2px solid;
     }
 .numButton:hover {
     transform: translateY(-2px);
     background-color: #beca89;
-    color: var(--plain-white);
+    color: var(--text-light);
 }
 .numButton:active {
     transform: scale(0.95);
     background-color: #869c65;
-    color: var(--plain-white);
+    color: var(--text-light);
 }
 .operatorButton {
-    background-color: var(--beige-and-brown);
-    color: var(--plain-white);
+    background-color: var(--dark);
+    color: var(--text-light);
 }
 .operatorButton:hover {
     background-color: #5b422c;
@@ -100,17 +126,17 @@ body {
 }
 .operatorButton:active {
     background-color: #4b3723;
-    color: white;
+    color: var(--text-light);
     transform: scale(0.95);
 }
 .equal {
-    background-color: var(--emerald-green);
-    color: var(--plain-white);
-    border: var(--hookers-green) 2px solid;
+    background-color: var(--grey);
+    color: var(--text-light);
+    border: var(--darkest) 2px solid;
 }
 .clear {
-    background-color: var(--blushed-red);
-    color: var(--plain-white);
+    background-color: var(--emphasize);
+    color: var(--text-light);
     border: #762b2b 2px solid;
 }
 .clear:hover {
@@ -133,13 +159,13 @@ DISCLAIMER : Not suitable for the screen under 720p!*/
     .numButton {
         padding: 20px;
         font-size: 2rem;
-        border: var(--beige-and-brown) 1px solid;
+        border: var(--dark) 1px solid;
     }
 }
 
 @media (max-width: 600px) {
     body {
-        background-color: var(--beige);
+        background-color: var(--lightest);
     }
     .calculator {
         background-color: none;
@@ -173,7 +199,7 @@ DISCLAIMER : Not suitable for the screen under 720p!*/
 
 @media (max-width: 400px) {
     .numButton {
-        border: var(--beige-and-brown) 1px solid;
+        border: var(--dark) 1px solid;
     }
 }
 
