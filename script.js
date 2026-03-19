@@ -1,6 +1,18 @@
 console.log("Javascript berjalan")
+let developmentMessage = "Fitur masih dalam tahap pengembangan";
+let succesfullInput = "Elemen berhasil diklik";
 const displayOutput = document.getElementById('display');
 const inputButton = document.querySelectorAll('.numButton');
+const advancedFeature = document.querySelector('.advanced');
+const themeChangging = document.querySelector('.theme');
+
+themeChangging.addEventListener('click', function() {
+    console.log(developmentMessage + " dan " + succesfullInput);
+})
+advancedFeature.addEventListener('click', function() {
+    console.log(developmentMessage + " dan " + succesfullInput);
+})
+
 // How the calculator displayed
 inputButton.forEach(button => {
     button.addEventListener('click', function(e) {
