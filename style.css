@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
-/*To adding the different theme in the future also the basic color for calculator*/
+/*This is the default theme from the display*/
 :root {
     --text-light : #F9F8F6;
     --lightest: #F8F3E1;
@@ -10,8 +10,39 @@
     --emphasize : #BF4646;
     --dark : #6E5034;
     --darkest: #41431B;
+    --animation-hover:#beca89;
+    --animation-hover-operator:#5b422c;
+    --animation-active:#869c65;
+    --animation-active-operator:#4b3723;
 }
-
+/*White is reverse from the default themes*/
+[theme-option="white"] {
+    --text-light : #F3F4F4;
+    --lightest: #F9F8F6;
+    --greyer: #F9F8F6;
+    --grey: #4F4A45;
+    --emphasize : #BF4646;
+    --dark : #0C2B4E;
+    --darkest: #F7F8F0;
+    --animation-hover:#968f88;
+    --animation-hover-operator:#225a99;
+    --animation-active:#666666;
+    --animation-active-operator:#14375f;
+}
+[theme-option="dark"] {
+    --text-light : #F3F4F4;
+    --lightest: #D3DAD9;
+    --greyer: #EEEEEE;
+    --grey: #4F4A45;
+    --emphasize : #BF4646;
+    --dark : #44444E;
+    --darkest: #1B211A;
+    --animation-hover:#968f88;
+    --animation-hover-operator:#63636e;
+    --animation-active:#666666;
+    --animation-active-operator:#37373f;
+}
+/*HTML ELEMENT*/
 * {
     font-family: "Poppins", sans-serif;
     border: none;
@@ -108,12 +139,12 @@ body {
     }
 .numButton:hover {
     transform: translateY(-2px);
-    background-color: #beca89;
+    background-color: var(--animation-hover);
     color: var(--text-light);
 }
 .numButton:active {
     transform: scale(0.95);
-    background-color: #869c65;
+    background-color: var(--animation-active);
     color: var(--text-light);
 }
 .operatorButton {
@@ -121,11 +152,11 @@ body {
     color: var(--text-light);
 }
 .operatorButton:hover {
-    background-color: #5b422c;
+    background-color: var(--animation-hover-operator);
     transform: translateY(-2px);
 }
 .operatorButton:active {
-    background-color: #4b3723;
+    background-color: var(--animation-active-operator);
     color: var(--text-light);
     transform: scale(0.95);
 }
@@ -165,7 +196,7 @@ DISCLAIMER : Not suitable for the screen under 720p!*/
 
 @media (max-width: 600px) {
     body {
-        background-color: var(--lightest);
+        background-color: var(--darkest);
     }
     .calculator {
         background-color: none;
