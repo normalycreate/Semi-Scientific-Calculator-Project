@@ -124,10 +124,25 @@ body {
     box-shadow: 2px 2px 2px 0px #00000071, inset 2px 2px 2px 0px #00000064, inset -2px -2px 0px 1px rgba(0, 0, 0, 0.329);
     transition: background-color 0.3s ease;
 }
-.button {
-    display: grid;
+.button, .advancedFeature {
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+}
+.button {
+    display: grid;
+}
+.advancedFeature {
+    display: none;
+}
+.calculator.mode-advanced .button {
+    display: none;
+}
+.calculator.mode-advanced .advancedFeature {
+    display: grid;
+}
+.fontAdjustment {
+    width: 117px;
+    height: 122px;
 }
 .numButton {
     padding: 35px;
@@ -189,7 +204,7 @@ DISCLAIMER : Not suitable for the screen under 720p!*/
         height: 105px;
         width: 400px;
     }
-    .button {
+    .button, .advancedFeature {
         gap: 8px;
     }
     .numButton {
@@ -226,8 +241,7 @@ DISCLAIMER : Not suitable for the screen under 720p!*/
         align-items: center;
         justify-content: center;
     }
-    .button {
-        display: grid;
+    .button, .advancedFeature {
         grid-template-columns: repeat(4, 1fr);
         gap: clamp(8px, 2vw, 15px); 
     }
