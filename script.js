@@ -53,6 +53,39 @@ inputButton.forEach(button => {
             } catch {
                 displayOutput.value = 'Error';
             }
+        } else if(action === 'numberGenerator') {
+            try {
+                let randomizing = math.random(displayOutput.value).toFixed(0);
+                if (randomizing < 0) {
+                    displayOutput.value = 'Error';
+                } else {
+                    displayOutput.value = randomizing;
+                }
+            } catch {
+                displayOutput.value = 'Error';
+            }
+        } else if(action === 'gcd') {
+            console.log("Fitur Masih Dalam Tahap Pengembangan");
+        } else if(action === 'hcf') {
+            console.log("Fitur Masih Dalam Tahap Pengembangan");
+        } else if(action === 'rounding') {
+            console.log("Fitur Masih Dalam Tahap Pengembangan");
+        } else if(action === 'sin') {
+            console.log("Fitur Masih Dalam Tahap Pengembangan");
+        } else if(action === 'cos') {
+            console.log("Fitur Masih Dalam Tahap Pengembangan");
+        } else if(action === 'tan') {
+            console.log("Fitur Masih Dalam Tahap Pengembangan");
+        } else if(action === 'pi') {
+            console.log("Fitur Masih Dalam Tahap Pengembangan");
+        } else if(action === 'cosecan') {
+            console.log("Fitur Masih Dalam Tahap Pengembangan");
+        } else if(action === 'secan') {
+            console.log("Fitur Masih Dalam Tahap Pengembangan");
+        } else if(action === 'cotan') {
+            console.log("Fitur Masih Dalam Tahap Pengembangan");
+        } else if(action === 'logarithm') {
+            console.log("Fitur Masih Dalam Tahap Pengembangan");
         } else {
             if (takeButtonValue != "") {
                 displayOutput.value += takeButtonValue;
