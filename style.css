@@ -141,8 +141,11 @@ body {
     display: grid;
 }
 .fontAdjustment {
-    width: 117.5px;
-    height: 122px;
+    width: 7.344rem;
+    height: 7.625rem;
+}
+.fixingFontSize {
+    font-size: 1.5rem !important;
 }
 .numButton {
     padding: 35px;
@@ -207,6 +210,10 @@ DISCLAIMER : Not suitable for the screen under 720p!*/
     .button, .advancedFeature {
         gap: 8px;
     }
+    .fontAdjustment {
+        width: 94px;
+        height: 90px;
+    }
     .numButton {
         padding: 20px;
         font-size: 2rem;
@@ -244,6 +251,11 @@ DISCLAIMER : Not suitable for the screen under 720p!*/
     .button, .advancedFeature {
         grid-template-columns: repeat(4, 1fr);
         gap: clamp(8px, 2vw, 15px); 
+    }
+    .fontAdjustment {
+        font-size: clamp(1rem, 5vw, 1.5rem);
+        width: clamp(60px, 20vw, 115px);
+        height: clamp(60px, 20vw, 115px);
     }
 }
 
