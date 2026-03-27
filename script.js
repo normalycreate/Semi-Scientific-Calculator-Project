@@ -139,7 +139,7 @@ inputButton.forEach(button => {
     });
 });
 
-//Advanced Feature Still Work In Development
+//Button Swapping
 const toggleAdvancedBtn = document.querySelector('.advanced');
 const basicFunctionToggle = document.querySelector('.calculator'); 
 
