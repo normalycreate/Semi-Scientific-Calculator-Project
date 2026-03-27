@@ -94,11 +94,11 @@ inputButton.forEach(button => {
     });
 });
 
-//Advanced Feature Still Work In Development
+//Button Swapping
 const toggleAdvancedBtn = document.querySelector('.advanced');
-const calculatorContainer = document.querySelector('.calculator'); 
+const basicFunctionToggle = document.querySelector('.calculator'); 
 
 toggleAdvancedBtn.addEventListener('click', function() {
     this.classList.toggle('active');
-    calculatorContainer.classList.toggle('mode-advanced');
+    basicFunctionToggle.classList.toggle('mode-advanced');
 });
