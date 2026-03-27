@@ -30,6 +30,8 @@ inputButton.forEach(button => {
         const buttonTarget = e.currentTarget;
         const action = buttonTarget.getAttribute('data-action');
         let takeButtonValue = buttonTarget.getAttribute('data-value');
+        //Feedback MSG
+        const errorMsg = 'Error';
         // Calculator Logical
         if(action === 'clear') {
             displayOutput.value = '';
@@ -38,63 +40,106 @@ inputButton.forEach(button => {
         } else if(action === 'equal') {
             try {
                 let calculateAll = math.evaluate(displayOutput.value);
-                if (!Number.isInteger(calculateAll) && calculateAll.toString().split('.')[1]?.length > 7) {
-                    displayOutput.value = parseFloat(calculateAll.toFixed(8));
+                if (!Number.isInteger(calculateAll) && calculateAll.toString().split('.')[1]?.length > 8) {
+                    displayOutput.value = parseFloat(calculateAll.toFixed(7));
                 } else {
                     displayOutput.value = calculateAll;
                 }
             } catch {
-                displayOutput.value = 'Error';
+                displayOutput.value = errorMsg;
             }
         } else if(action === 'squareRoot') {
             try {
-                let currentValue = math.evaluate(displayOutput.value);
-                displayOutput.value = Math.sqrt(currentValue).toFixed(8);
+                let currentValue = math.sqrt(displayOutput.value);
+                if (!Number.isInteger(currentValue) && currentValue.toString().split('.')[1]?.length > 8) {
+                    displayOutput.value = parseFloat(currentValue.toFixed(7));
+                } else {
+                    displayOutput.value = currentValue;
+                }
+                // displayOutput.value = Math.sqrt(currentValue).toFixed(8);
             } catch {
-                displayOutput.value = 'Error';
+                displayOutput.value = errorMsg;
             }
         } else if(action === 'numberGenerator') {
             try {
                 let randomizing = math.random(displayOutput.value).toFixed(0);
                 if (randomizing < 0) {
-                    displayOutput.value = 'Error';
+                    displayOutput.value = errorMsg;
                 } else {
                     displayOutput.value = randomizing;
                 }
             } catch {
-                displayOutput.value = 'Error';
+                displayOutput.value = errorMsg;
             }
         } else if(action === 'gcd') {
-            console.log("Fitur Masih Dalam Tahap Pengembangan");
+            try {
+                displayOutput.value = "gcd(" + displayOutput.value + ",";
+            } catch {
+                displayOutput.value = errorMsg;
+            }
         } else if(action === 'hcf') {
-            console.log("Fitur Masih Dalam Tahap Pengembangan");
+            try {
+                displayOutput.value = "lcm(" + displayOutput.value + ",";
+            } catch {
+                displayOutput.value = errorMsg;
+            }
         } else if(action === 'rounding') {
-            console.log("Fitur Masih Dalam Tahap Pengembangan");
+            try {
+                displayOutput.value = math.round(displayOutput.value);
+            } catch {
+                displayOutput.value = errorMsg;
+            }
         } else if(action === 'sin') {
-            console.log("Fitur Masih Dalam Tahap Pengembangan");
+            try {
+                displayOutput.value = math.sin(displayOutput.value).toFixed(7);
+            } catch {
+                displayOutput.value = errorMsg;
+            }
         } else if(action === 'cos') {
-            console.log("Fitur Masih Dalam Tahap Pengembangan");
+            try {
+                displayOutput.value = math.cos(displayOutput.value).toFixed(7);
+            } catch {
+                displayOutput.value = errorMsg;
+            }
         } else if(action === 'tan') {
-            console.log("Fitur Masih Dalam Tahap Pengembangan");
-        } else if(action === 'pi') {
-            console.log("Fitur Masih Dalam Tahap Pengembangan");
+            try {
+                displayOutput.value = math.tan(displayOutput.value).toFixed(7);
+            } catch {
+                displayOutput.value = errorMsg;
+            }
         } else if(action === 'cosecan') {
-            console.log("Fitur Masih Dalam Tahap Pengembangan");
+            try {
+                displayOutput.value = math.csc(displayOutput.value).toFixed(7);
+            } catch {
+                displayOutput.value = errorMsg;
+            }
         } else if(action === 'secan') {
-            console.log("Fitur Masih Dalam Tahap Pengembangan");
+            try {
+                displayOutput.value = math.sec(displayOutput.value).toFixed(7);
+            } catch {
+                displayOutput.value = errorMsg;
+            }
         } else if(action === 'cotan') {
-            console.log("Fitur Masih Dalam Tahap Pengembangan");
+            try {
+                displayOutput.value = math.cot(displayOutput.value).toFixed(7);
+            } catch {
+                displayOutput.value = errorMsg;
+            }
         } else if(action === 'logarithm') {
-            console.log("Fitur Masih Dalam Tahap Pengembangan");
+            try {
+                displayOutput.value = math.log(displayOutput.value).toFixed(7);
+            } catch {
+                displayOutput.value = errorMsg;
+            }
         } else {
-            if (takeButtonValue != "") {
+            if (takeButtonValue != "") {    
                 displayOutput.value += takeButtonValue;
             }   
         }
     });
 });
 
-//Button Swapping
+//Advanced Feature Still Work In Development
 const toggleAdvancedBtn = document.querySelector('.advanced');
 const basicFunctionToggle = document.querySelector('.calculator'); 
 
