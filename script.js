@@ -158,19 +158,39 @@ inputButton.forEach(button => {
 //Keyboard Support Function
 document.addEventListener('keydown', function(event) {
     const key = event.key;
+    //To Shorten document.querySelector(nameObject);
+    let select = document.querySelector.bind(document);
     let targetButton = null;
     switch (true) {
         case (key === 'Enter' || key === '='):
-            targetButton = document.querySelector('[data-action="equal"]');
+            targetButton = select('[data-action="equal"]');
             break;
         case (key === 'Backspace'):
-            targetButton = document.querySelector('[data-action="delete"]');
+            targetButton = select('[data-action="delete"]');
             break;
         case (key === 'Escape' || key === 'Delete'):
-            targetButton = document.querySelector('[data-action="clear"]');
+            targetButton = select('[data-action="clear"]');
+            break;
+        case (key === 's'):
+            targetButton = select('[data-action="squareRoot"]');
+            break;
+        case (key === '?'):
+            targetButton = select('[data-action="numberGenerator"]');
+            break;
+        case (key === 'g'):
+            targetButton = select('[data-action="gcd"]');
+            break;
+        case (key === 'h'):
+            targetButton = select('[data-action="hcf"]');
+            break;
+        case (key === '('):
+            targetButton = select('[data-action="parenthesisRigth"]');
+            break;
+        case (key === ')'):
+            targetButton = select('[data-action="parenthesisLeft"]')
             break;
         case (/^[0-9+\-*/.]$/.test(key)):
-            targetButton = document.querySelector(`[data-value="${key}"]`);
+            targetButton = select(`[data-value="${key}"]`);
             break;
     }
     if (targetButton) {
