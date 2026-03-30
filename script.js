@@ -155,6 +155,30 @@ inputButton.forEach(button => {
     });
 });
 
+//Keyboard Support Function
+document.addEventListener('keydown', function(event) {
+    const key = event.key;
+    let targetButton = null;
+    switch (true) {
+        case (key === 'Enter' || key === '='):
+            targetButton = document.querySelector('[data-action="equal"]');
+            break;
+        case (key === 'Backspace'):
+            targetButton = document.querySelector('[data-action="delete"]');
+            break;
+        case (key === 'Escape' || key === 'Delete'):
+            targetButton = document.querySelector('[data-action="clear"]');
+            break;
+        case (/^[0-9+\-*/.]$/.test(key)):
+            targetButton = document.querySelector(`[data-value="${key}"]`);
+            break;
+    }
+    if (targetButton) {
+        event.preventDefault();
+        targetButton.click();  
+    }
+});
+
 //Advanced Feature Still Work In Development
 const toggleAdvancedBtn = document.querySelector('.advanced');
 const basicFunctionToggle = document.querySelector('.calculator'); 
