@@ -9,7 +9,7 @@ const themesPallete = ['default', 'white', 'dark'];
 let choosingThemesPallete = 0;
 const themeChangging = document.querySelector('.theme');
 const getBodyElement = document.body
-
+  
 const rememberChoosingThemes = localStorage.getItem('calculatorThemesItemStorage');
 if (rememberChoosingThemes && themesPallete.includes(rememberChoosingThemes)) {
     choosingThemesPallete = themesPallete.indexOf(rememberChoosingThemes);
@@ -36,10 +36,10 @@ inputButton.forEach(button => {
         switch(action) {
             case 'clear': 
                 displayOutput.value = '';
-            break;
+                break;
             case 'delete': 
                 displayOutput.value = displayOutput.value.slice(0, -1);
-            break;
+                break;
             case 'equal':
                 try {
                     let calculateAll = math.evaluate(displayOutput.value);
@@ -51,7 +51,7 @@ inputButton.forEach(button => {
                 } catch {
                     displayOutput.value = errorMsg;
                 }   
-            break;
+                break;
             case 'squareRoot':
                 try {
                     let currentValue = math.sqrt(displayOutput.value);
@@ -64,7 +64,7 @@ inputButton.forEach(button => {
                 } catch {
                     displayOutput.value = errorMsg;
                 }
-            break;
+                break;
             case 'numberGenerator':
                 try {
                     let randomizing = math.random(displayOutput.value).toFixed(0);
@@ -76,77 +76,89 @@ inputButton.forEach(button => {
                 } catch {
                     displayOutput.value = errorMsg;
                 }
-            break;
+                break;
             case 'gcd':
                 try {
                     displayOutput.value = "gcd(" + displayOutput.value + ",";
                 } catch {
                     displayOutput.value = errorMsg;
                 }
-            break;
+                break;
             case 'hcf':
                 try {
                     displayOutput.value = "lcm(" + displayOutput.value + ",";
                 } catch {
                     displayOutput.value = errorMsg;
                 }
-            break;
+                break;
             case 'rounding':
                 try {
                     displayOutput.value = math.round(displayOutput.value);
                 } catch {
                     displayOutput.value = errorMsg;
                 }
-            break;
+                break;
             case 'sin':
                 try {
                     displayOutput.value = math.sin(displayOutput.value).toFixed(7);
                 } catch {
                     displayOutput.value = errorMsg;
                 }
-            break;
+                break;
             case 'cos':
                 try {
                     displayOutput.value = math.cos(displayOutput.value).toFixed(7);
                 } catch {
                     displayOutput.value = errorMsg;
                 }
-            break;
+                break;
             case 'tan':
                 try {
                     displayOutput.value = math.tan(displayOutput.value).toFixed(7);
                 } catch {
                     displayOutput.value = errorMsg;
                 }
-            break;
+                break;
             case 'cosecan':
                 try {
                     displayOutput.value = math.csc(displayOutput.value).toFixed(7);
                 } catch {
                     displayOutput.value = errorMsg;
                 }
-            break;
+                break;
             case 'secan':
                 try {
                     displayOutput.value = math.sec(displayOutput.value).toFixed(7);
                 } catch {
                     displayOutput.value = errorMsg;
                 }
-            break;
+                break;
             case 'cotan':
                 try {
                     displayOutput.value = math.cot(displayOutput.value).toFixed(7);
                 } catch {
                     displayOutput.value = errorMsg;
                 }
-            break;
+                break;
             case 'logarithm':
                 try {
                     displayOutput.value = math.log(displayOutput.value).toFixed(7);
                 } catch {
                     displayOutput.value = errorMsg;
                 }
-            break;
+                break;
+            case 'factorial':
+                try {
+                    let factorialNumber = Number(displayOutput.value);
+                    if (factorialNumber > 18) {
+                        displayOutput.value = 'Too Big';
+                    } else {
+                        displayOutput.value = math.factorial(displayOutput.value);
+                    }
+                } catch {
+                    displayOutput.value = errorMsg;
+                }
+                break;
             default:
                 if (takeButtonValue != "") {    
                     displayOutput.value += takeButtonValue;
@@ -161,36 +173,46 @@ document.addEventListener('keydown', function(event) {
     //To Shorten document.querySelector(nameObject);
     let select = document.querySelector.bind(document);
     let targetButton = null;
+    //Specific Condition for logical 'or' and regex case
     switch (true) {
         case (key === 'Enter' || key === '='):
             targetButton = select('[data-action="equal"]');
             break;
-        case (key === 'Backspace'):
-            targetButton = select('[data-action="delete"]');
-            break;
         case (key === 'Escape' || key === 'Delete'):
             targetButton = select('[data-action="clear"]');
             break;
-        case (key === 's'):
+        case (/^[0-9+\-*/.^%]$/.test(key)):
+            targetButton = select(`[data-value="${key}"]`);
+            break;
+    }
+    //For Normal case without or
+    switch(key) {
+        case 'Backspace':
+            targetButton = select('[data-action="delete"]');
+            break;
+        case 's':
             targetButton = select('[data-action="squareRoot"]');
             break;
-        case (key === '?'):
+        case '?':
             targetButton = select('[data-action="numberGenerator"]');
             break;
-        case (key === 'g'):
+        case 'g':
             targetButton = select('[data-action="gcd"]');
             break;
-        case (key === 'h'):
+        case 'h':
             targetButton = select('[data-action="hcf"]');
             break;
-        case (key === '('):
-            targetButton = select('[data-action="parenthesisRigth"]');
+        case '(':
+            targetButton = select('[data-value="("]');
             break;
-        case (key === ')'):
-            targetButton = select('[data-action="parenthesisLeft"]')
+        case ')':
+            targetButton = select('[data-value=")"]');
             break;
-        case (/^[0-9+\-*/.]$/.test(key)):
-            targetButton = select(`[data-value="${key}"]`);
+        case 'l':
+            targetButton = select('[data-action="logarithm"]');
+            break;
+        case '!':
+            targetButton = select('[data-action="factorial"]');
             break;
     }
     if (targetButton) {
