@@ -22,4 +22,4 @@ Enter / = -> Equal in calculator. <br>
 Dellete / Escape -> All clear button.<br>
 <br>
 Unfinished Calculator Link<br>
-https://normalycreate.github.io/Customizebale-Calculator-Project---WIP/
+(https://normalycreate.github.io/Semi-Scientific-Calculator-Project/)
