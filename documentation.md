@@ -80,7 +80,7 @@ EN : Calculator logic to doing the calculation
             } catch {
                 displayOutput.value = 'Error';
             }
-
+CAUTION : eval in the 'eval(displayOutput.value);' is simple but it unsafe so it changed in script.js to custom parser like math.js to avoid illegal execution. <br>
 EN : Displaying all of the input into the calculator display.
 
         } else {
