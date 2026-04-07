@@ -1,25 +1,31 @@
-# Calculator
-## Status [->] Progress.
-Indicator Bar.
-[->] Progress <br>
-[✅] Done <br>
-[XX] Not Started <br>
+<img width="1918" height="936" alt="image" src="https://github.com/user-attachments/assets/6d935594-b8cb-498d-9280-96e0b0bed56f" />
 
-## The feature that will be added
-[->] Feature to customize the background and customizing the colour pallete <br>
-[✅] Option to change into advanced math calculation <br>
-[✅] Keyboard Typing Calculation <br>
+# 🧮 Semi-Scientific Calculator Project
 
-## Shortcut 
-BackSpace -> Delete number or operator. <br>
-S -> Squareroot function.<br>
-? -> Random number generator.<br>
-g -> Shortcut for GCD (Greatest Common Divisor) function.<br>
-k -> Shortcut for LCM (Least Common Multiple) function.<br>
-! -> Shortcut for factorial function with maximum 18 number digits.<br>
-l -> Shortcut for logarithn function.<br>
-Enter / = -> Equal in calculator. <br>
-Dellete / Escape -> All clear button.<br>
-<br>
-Unfinished Calculator Link<br>
-(https://normalycreate.github.io/Semi-Scientific-Calculator-Project/)
+## ✨ Features
+- 🎨 Multiple calculator **color palettes**
+- 📐 Option for **advanced math calculation**
+- ⌨️ **Keyboard typing calculation**
+
+---
+
+## ⌨️ Shortcuts
+
+| Key / Symbol | Function |
+|--------------|----------|
+| **Backspace** | Delete number or operator |
+| **S** | Square root function |
+| **?** | Random number generator |
+| **g** | GCD (Greatest Common Divisor) |
+| **k** | LCM (Least Common Multiple) |
+| **!** | Factorial (max 18 digits) |
+| **l** | Logarithm function |
+| **Enter / =** | Equal (calculate result) |
+| **Delete / Escape** | All clear button |
+
+---
+
+## 🔗 Project Link
+👉 [Semi Scientific Calculator v0.10 Alpha](https://normalycreate.github.io/Semi-Scientific-Calculator-Project/)
+
+---
